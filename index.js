@@ -1,12 +1,21 @@
 require('dotenv').config()
 const express= require("express")
 const mongoose= require("mongoose")
+var cors = require("cors");
 // const dotenv= require('dotenv')
 const app=express()
 app.use(express.json())
 
 
+const corsOpts = {
+  origin: "*",
 
+  methods: ["GET", "POST"],
+
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOpts));
 
 const DB= process.env.REACT_APP_API_KEY
 const port= process.env.PORT
